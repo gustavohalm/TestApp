@@ -13,11 +13,17 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
+import com.xbrain.testapp.Fragments.ClienteFragment;
+import com.xbrain.testapp.Fragments.EntregaFragment;
+import com.xbrain.testapp.Fragments.PedidoFragment;
+import com.xbrain.testapp.Fragments.ProdutoFragment;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.Menu;
 
@@ -72,15 +78,35 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_home) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_cliente) {
 
-        } else if (id == R.id.nav_slideshow) {
+            ClienteFragment clienteFragment = new ClienteFragment();
+            FragmentTransaction transaction =  getSupportFragmentManager().beginTransaction();
+            transaction.add(R.id.frameLayout, clienteFragment, null);
+            transaction.commit();
 
-        } else if (id == R.id.nav_tools) {
+        } else if (id == R.id.nav_produto) {
 
-        } else if (id == R.id.nav_share) {
+            ProdutoFragment produtoFragment = new ProdutoFragment();
+            FragmentTransaction transaction =  getSupportFragmentManager().beginTransaction();
+            transaction.add(R.id.frameLayout, produtoFragment, null);
+            transaction.commit();
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_venda) {
+
+
+            PedidoFragment pedidoFragment = new PedidoFragment();
+            FragmentTransaction transaction =  getSupportFragmentManager().beginTransaction();
+            transaction.add(R.id.frameLayout, pedidoFragment, null);
+            transaction.commit();
+
+
+        } else if (id == R.id.nav_Entregas) {
+
+            EntregaFragment entregaFragment = new EntregaFragment();
+            FragmentTransaction transaction =  getSupportFragmentManager().beginTransaction();
+            transaction.add(R.id.frameLayout, entregaFragment, null);
+            transaction.commit();
 
         }
 

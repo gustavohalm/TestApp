@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.ProdutoFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text34"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Adicione um Produto"
+            android:textSize="28sp" />
+
+        <EditText
+            android:id="@+id/editProdutoName"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/darker_gray"
+            android:ems="10"
+            android:hint="Nome do Produto"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/editProdutoValue"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/darker_gray"
+            android:ems="10"
+            android:hint="Valor do Produto"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/editProdutoQuantity"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/darker_gray"
+            android:ems="10"
+            android:hint="Quantidade do Produto"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/btnCreateProduto"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorPrimary"
+            android:text="ADICIONAR"
+            android:textColor="@android:color/background_light"
+            android:textSize="28sp" />
+
+    </LinearLayout>
+</FrameLayout>

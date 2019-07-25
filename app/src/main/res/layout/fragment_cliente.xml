@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.ClienteFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text34"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Adicione um Cliente"
+            android:textSize="28sp" />
+
+        <EditText
+            android:id="@+id/editClienteName"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/darker_gray"
+            android:ems="10"
+            android:hint="Nome do Cliente"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/editClienteEmail"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/darker_gray"
+            android:ems="10"
+            android:hint="Email do Cliente"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/editClienteCelular"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/darker_gray"
+            android:ems="10"
+            android:hint="Celular do Cliente"
+            android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/btnCreateCliente"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorPrimary"
+            android:text="CADASTRAR"
+            android:textColor="@android:color/background_light"
+            android:textSize="28sp" />
+    </LinearLayout>
+</FrameLayout>
