@@ -1,14 +1,18 @@
 package com.xbrain.testapp.Adapters;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.xbrain.testapp.Fragments.PedidoFragment;
+import com.xbrain.testapp.MainActivity;
 import com.xbrain.testapp.Models.Cliente;
 import com.xbrain.testapp.R;
 
@@ -30,9 +34,22 @@ public class AdapterCliente extends RecyclerView.Adapter<AdapterCliente.MyViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.txtClienteName.setText(listClientes.get(position).getName());
+    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
+        holder.btnName.setText(listClientes.get(position).getName());
 
+        holder.btnName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences prefs = context.getSharedPreferences("cliente_selected", context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("cliente", listClientes.get(position).getName());
+                editor.putLong("cliente_id", listClientes.get(position).getId());
+                editor.apply();
+                MainActivity  activity = (MainActivity) view.getContext();
+                PedidoFragment pedidoFragment = new PedidoFragment();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, pedidoFragment).addToBackStack(null).commit();
+            }
+        });
     }
 
     @Override
@@ -41,10 +58,10 @@ public class AdapterCliente extends RecyclerView.Adapter<AdapterCliente.MyViewHo
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView txtClienteName;
+        Button btnName;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtClienteName = itemView.findViewById(R.id.txtProdutoName);
+            btnName = itemView.findViewById(R.id.btnClienteName);
         }
     }
 }

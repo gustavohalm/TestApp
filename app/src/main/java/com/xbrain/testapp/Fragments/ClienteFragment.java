@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,7 @@ public class ClienteFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_cliente, container, false);
+        Log.v("debugMode", "Fraggment client was opende");
         editNome = view.findViewById(R.id.editClienteName);
         editEmail = view.findViewById(R.id.editClienteEmail);
         editCelphone = view.findViewById(R.id.editClienteCelular);
@@ -67,7 +69,7 @@ public class ClienteFragment extends Fragment {
         cliente.setEmail(email);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://localhost/")
+                .baseUrl("http://192.168.15.111:8081/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

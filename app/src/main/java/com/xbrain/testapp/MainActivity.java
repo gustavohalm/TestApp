@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import com.google.android.material.navigation.NavigationView;
 import com.xbrain.testapp.Fragments.ClienteFragment;
 import com.xbrain.testapp.Fragments.EntregaFragment;
+import com.xbrain.testapp.Fragments.ListClienteFragment;
 import com.xbrain.testapp.Fragments.PedidoFragment;
 import com.xbrain.testapp.Fragments.ProdutoFragment;
 
@@ -26,17 +27,23 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.Menu;
+import android.widget.FrameLayout;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    private FrameLayout frameLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-       }
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        frameLayout = findViewById(R.id.frameLayout);
+    }
 
     @Override
     public void onBackPressed() {
@@ -76,20 +83,18 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_home) {
-            // Handle the camera action
-        } else if (id == R.id.nav_cliente) {
+        if (id == R.id.nav_cliente) {
 
             ClienteFragment clienteFragment = new ClienteFragment();
             FragmentTransaction transaction =  getSupportFragmentManager().beginTransaction();
-            transaction.add(R.id.frameLayout, clienteFragment, null);
+            transaction.add(R.id.frameLayout, clienteFragment);
             transaction.commit();
 
         } else if (id == R.id.nav_produto) {
 
             ProdutoFragment produtoFragment = new ProdutoFragment();
             FragmentTransaction transaction =  getSupportFragmentManager().beginTransaction();
-            transaction.add(R.id.frameLayout, produtoFragment, null);
+            transaction.add(R.id.frameLayout, produtoFragment);
             transaction.commit();
 
         } else if (id == R.id.nav_venda) {
@@ -97,7 +102,7 @@ public class MainActivity extends AppCompatActivity
 
             PedidoFragment pedidoFragment = new PedidoFragment();
             FragmentTransaction transaction =  getSupportFragmentManager().beginTransaction();
-            transaction.add(R.id.frameLayout, pedidoFragment, null);
+            transaction.add(R.id.frameLayout, pedidoFragment);
             transaction.commit();
 
 
@@ -105,7 +110,7 @@ public class MainActivity extends AppCompatActivity
 
             EntregaFragment entregaFragment = new EntregaFragment();
             FragmentTransaction transaction =  getSupportFragmentManager().beginTransaction();
-            transaction.add(R.id.frameLayout, entregaFragment, null);
+            transaction.add(R.id.frameLayout, entregaFragment);
             transaction.commit();
 
         }
@@ -113,5 +118,14 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+    public void openDialogCliente()
+    {
+        ListClienteFragment listClienteFragment = new ListClienteFragment();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.add(R.id.frameLayout, listClienteFragment);
+        transaction.addToBackStack(null);
+
+        transaction.commit();
     }
 }

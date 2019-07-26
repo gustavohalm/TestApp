@@ -55,6 +55,8 @@ public class ProdutoFragment extends Fragment {
             }
         });
 
+
+
         return view;
     }
 
@@ -70,7 +72,7 @@ public class ProdutoFragment extends Fragment {
         produto.setQuantity(quantity);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://localhost/")
+                .baseUrl("http://192.168.15.111:8081/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         Service service = retrofit.create(Service.class);

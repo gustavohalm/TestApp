@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/background_light"
     tools:context=".Fragments.PedidoFragment">
 
     <LinearLayout
@@ -10,6 +11,7 @@
         android:layout_height="match_parent"
         android:layout_margin="16dp"
         android:layout_marginTop="8dp"
+        android:background="@android:color/background_light"
         android:orientation="vertical">
 
         <ScrollView
@@ -50,18 +52,31 @@
                     android:layout_marginTop="16dp"
                     android:text="Clique para adicionar Produtos" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rcvSelectProdutos"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="8dp" />
-
                 <TextView
                     android:id="@+id/textView6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="Selecionados" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Spinner
+                        android:id="@+id/spinProdutos"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_weight="1" />
+
+                    <Button
+                        android:id="@+id/btnAddProduto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:text="+" />
+                </LinearLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rcvSelected"
